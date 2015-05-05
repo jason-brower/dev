@@ -12,11 +12,12 @@ gulp.task('build-js', function() {
   var builder = new systemjs();
   return builder.loadConfig('./config.js')
     .then(function() {
-      builder.config({ baseURL: 'file:' + path.resolve('./') });
-      return builder.buildSFX('./app/app', './build.js', {
+      var options = {
         minify: true,
         sourceMaps: true
-      });
+      };
+      builder.config({ baseURL: 'file:' + path.resolve('./') });
+      return builder.buildSFX('./app/app', './build.js', options);
     });
 });
 
@@ -26,9 +27,9 @@ gulp.task('build-js', function() {
  */
 gulp.task('webserver', function() {
   var server = gls.new('app.js');
-	server.start();
+  server.start();
 
-	gulp.watch(['app/**/*.js'], server.notify);
+  gulp.watch(['app/**/*.js'], server.notify);
   gulp.watch('app.js', server.start);
 });
 
@@ -41,7 +42,7 @@ gulp.task('open', function() {
     url: 'http://localhost:8080'
   };
   gulp.src('./index.html')
-  .pipe(open('', options));
+    .pipe(open('', options));
 });
 
 /**
