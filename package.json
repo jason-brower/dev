@@ -17,7 +17,8 @@
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-live-server": "0.0.14",
-    "gulp-open": "^0.3.2"
+    "gulp-open": "^0.3.2",
+    "systemjs-builder": "^0.10.6"
   },
   "name": "NgBabelJspm",
   "description": "1. npm install jspm gulp -g 2. npm init 3. jspm init",
@@ -29,6 +30,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "path": "^0.11.14"
   }
 }
