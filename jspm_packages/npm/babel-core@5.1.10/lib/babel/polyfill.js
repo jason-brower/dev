@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 "use strict";
 
 if (global._babelPolyfill) {
@@ -9,4 +9,4 @@ global._babelPolyfill = true;
 
 require("core-js/shim");
 
-require("regenerator/runtime");
+require('babel-runtime/regenerator/runtime');

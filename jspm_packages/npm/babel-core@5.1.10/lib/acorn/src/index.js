@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 
 
 // The main exported interface (under `self.acorn` when in the

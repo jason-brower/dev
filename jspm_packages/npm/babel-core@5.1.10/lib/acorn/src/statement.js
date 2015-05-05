@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 "use strict";
 
 var tt = require("./tokentype").types;

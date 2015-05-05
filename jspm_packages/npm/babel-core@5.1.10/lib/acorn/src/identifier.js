@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 
 
 // Test whether a given character code starts an identifier.

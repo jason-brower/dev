@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 "use strict";
 
 exports.check = check;

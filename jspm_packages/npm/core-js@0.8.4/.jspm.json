@@ -75,7 +75,6 @@
     "shasum": "c22665f1e0d1b9c3c5e1b08dabd1f108695e4fcf",
     "tarball": "http://registry.npmjs.org/core-js/-/core-js-0.8.4.tgz"
   },
-  "jspm": {},
   "format": "cjs",
   "ignore": [
     "node_modules"

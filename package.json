@@ -16,7 +16,8 @@
   },
   "devDependencies": {
     "gulp": "^3.8.11",
-    "gulp-connect": "^2.2.0"
+    "gulp-live-server": "0.0.14",
+    "gulp-open": "^0.3.2"
   },
   "name": "NgBabelJspm",
   "description": "1. npm install jspm gulp -g 2. npm init 3. jspm init",
@@ -26,5 +27,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
 }

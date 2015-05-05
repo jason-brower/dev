@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 // required to safely use babel/register within a browserify codebase
 
 "use strict";

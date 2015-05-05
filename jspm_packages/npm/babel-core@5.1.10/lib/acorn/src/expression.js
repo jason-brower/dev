@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 // A recursive descent parser operates by defining functions for all
 // syntactic elements, and recursively calling those, each function
 // advancing the input stream and returning an AST node. Precedence

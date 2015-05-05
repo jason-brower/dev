@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 /**
  * Walk the input `node` and statically evaluate if it's truthy.
  *

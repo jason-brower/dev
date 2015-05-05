@@ -71,12 +71,26 @@
   "directories": {},
   "jspm": {
     "main": "browser.js",
-    "format": "global",
     "dependencies": {},
-    "jspmNodeConversion": false
+    "jspmNodeConversion": false,
+    "shim": {
+      "browser": {
+        "exports": "babel"
+      }
+    },
+    "map": {
+      "regenerator/runtime": "babel-runtime/regenerator/runtime"
+    }
   },
-  "format": "global",
   "jspmNodeConversion": false,
+  "shim": {
+    "browser": {
+      "exports": "babel"
+    }
+  },
+  "map": {
+    "regenerator/runtime": "babel-runtime/regenerator/runtime"
+  },
   "registry": "npm",
   "dependencies": {}
 }

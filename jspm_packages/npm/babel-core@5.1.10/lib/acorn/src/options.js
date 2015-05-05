@@ -1,5 +1,5 @@
 /* */ 
-"format global";
+"format cjs";
 
 
 // Interpret and default an options object

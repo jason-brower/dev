@@ -1,30 +1,22 @@
 var gulp = require('gulp');
-var connect = require('gulp-connect');
+var open = require('gulp-open');
+var gls = require('gulp-live-server');
 
-// Html task
-gulp.task('html', function() {
-  gulp.src('*.html')
-  .pipe(connect.reload());
+gulp.task('webserver', function() {
+  var server = gls.new('app.js');
+	server.start();
+
+	gulp.watch(['app/**/*.js'], server.notify);
+  gulp.watch('app.js', server.start);
 });
 
-//Js task
-gulp.task('js', function() {
-  gulp.src('./app/**/*.js')
-  .pipe(connect.reload());
-});
-
-// Watch our changes
-gulp.task('watch', function(){
-  //html
-  gulp.watch(['*.html'], ['html']);
-  gulp.watch(['./app/**/*.js'], ['js']);
-});
-
-gulp.task('connect', function() {
-  connect.server({
-    livereload: true
-  });
+gulp.task('open', function() {
+  var options = {
+    url: 'http://localhost:8080'
+  };
+  gulp.src('./index.html')
+  .pipe(open('', options));
 });
 
 // Start the tasks
-gulp.task('default', ['connect','watch']);
+gulp.task('default', ['webserver', 'open']);

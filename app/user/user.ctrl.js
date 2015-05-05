@@ -11,7 +11,7 @@ class UserCtrl {
 			this.users = [
 				{
 					id: "jason",
-					login: "Something and another"
+					login: "Something and another xxx"
 				}
 
 			];
