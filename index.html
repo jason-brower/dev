@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular Babel Jspm</title>
-	<link rel="stylesheet" href="jspm_packages/github/twbs/bootstrap@3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
 	<script src="//localhost:35729/livereload.js"></script>
 	<script src="jspm_packages/system.js"></script>
 	<script src="config.js"></script>
@@ -11,14 +11,16 @@
 		System.import('./app/app');
   </script>
 </head>
-<body ng-app="myApp">
-	<h1>AngularJs + Babel + JSPM + GULP</h1>
-	<div ng-controller="userCtrl as u">
-		<h2>List of Github users</h2>
-		<ul ng-repeat="usr in u.users">
-			<li>{{usr.id}}.- {{usr.login}} <img src="{{usr.avatar_url}}" height="50px" alt=""></li>
-		</ul>
+<body ng-app="feedbackTracker">
+	<div ng-controller="projectSummaryCtrl as projectSummary" class="project-summary-list">
+		<h2>Project Summaries</h2>
+		<div ng-repeat="project in projectSummary.projects" class="project-summary">
+			<div class="logo">
+				<img src="{{project.logo}}">
+			</div>
+			<h3 class="name">{{project.name}}</h3>
+			<div class="description">{{project.description}}</div>
+		</div>
 	</div>
-	<alert type="success">something</alert>
 </body>
 </html>

@@ -12,4 +12,4 @@ Open command prompt from project path
 
 5. navigate to http://localhost:8080
 
-Good to go
+requires jspm and jspm-bower-endpoint

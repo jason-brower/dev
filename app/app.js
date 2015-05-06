@@ -1,7 +1,7 @@
 import angular from 'angular';
 import bootstrap from 'angular-bootstrap';
-import * as UserModule from './user/user.module';
+import * as ProjectSummaryModule from './user/ProjectSummaryModule';
 
-angular.module('myApp',['ui.bootstrap'])
-  .factory('userSvc', UserModule.svc)
-  .controller('userCtrl', UserModule.ctrl);
+angular.module('feedbackTracker', ['ui.bootstrap'])
+  .factory('projectSummarySvc', ProjectSummaryModule.svc)
+  .controller('projectSummaryCtrl', ProjectSummaryModule.ctrl);

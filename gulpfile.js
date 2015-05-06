@@ -1,5 +1,7 @@
 var gulp = require('gulp');
+var sass = require('gulp-sass');
 var open = require('gulp-open');
+var sourcemaps = require('gulp-sourcemaps');
 var gls = require('gulp-live-server');
 var path = require('path');
 var systemjs = require('systemjs-builder');
@@ -22,6 +24,22 @@ gulp.task('build-js', function() {
 });
 
 /**
+ * CSS build task.
+ * Combines and minifies all sass files into a single stylesheet.
+ */
+gulp.task('build-css', function() {
+
+  gulp.src(['jspm_packages/bower/bootstrap-sass@3.3.4/assets/fonts/**/*'])
+    .pipe(gulp.dest('fonts'));
+
+  return gulp.src('./sass/*')
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./css'));
+});
+
+/**
  * WebServer task.
  * Starts a web server and watchs for file changes.
  */
@@ -29,7 +47,8 @@ gulp.task('webserver', function() {
   var server = gls.new('app.js');
   server.start();
 
-  gulp.watch(['app/**/*.js'], server.notify);
+  gulp.watch(['sass/**/*.scss'], ['build-css']);
+  gulp.watch(['css/**/*.css', 'app/**/*.js', 'index.html'], server.notify);
   gulp.watch('app.js', server.start);
 });
 
@@ -49,7 +68,7 @@ gulp.task('open', function() {
  * Build task.
  * Builds all source files into production ready files.
  */
-gulp.task('build', ['build-js']);
+gulp.task('build', ['build-js', 'build-css']);
 
 /**
  * Development task.
