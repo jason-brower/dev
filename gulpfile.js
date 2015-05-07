@@ -3,8 +3,19 @@ var sass = require('gulp-sass');
 var open = require('gulp-open');
 var sourcemaps = require('gulp-sourcemaps');
 var gls = require('gulp-live-server');
+var scsslint = require('gulp-scss-lint');
 var path = require('path');
 var systemjs = require('systemjs-builder');
+
+/**
+ * CSS lint task.
+ * Lints all sass files.
+ */
+gulp.task('lint-css', function() {
+  return gulp.src('./sass/*')
+    .pipe(scsslint())
+    .pipe(gulp.dest('./sass'));
+});
 
 /**
  * JavaScript build task.
@@ -28,7 +39,6 @@ gulp.task('build-js', function() {
  * Combines and minifies all sass files into a single stylesheet.
  */
 gulp.task('build-css', function() {
-
   gulp.src(['jspm_packages/bower/bootstrap-sass@3.3.4/assets/fonts/**/*'])
     .pipe(gulp.dest('fonts'));
 
@@ -63,6 +73,12 @@ gulp.task('open', function() {
   gulp.src('./index.html')
     .pipe(open('', options));
 });
+
+/**
+ * Lint task.
+ * Lints all source files for consistancy.
+ */
+gulp.task('lint', ['lint-css']);
 
 /**
  * Build task.

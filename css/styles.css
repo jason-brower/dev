@@ -4913,21 +4913,24 @@ body {
   padding: 0 20px; }
 
 .project-summary {
+  margin-bottom: 10px;
+  padding: 10px;
   background-color: #FFF;
   border: 1px solid #666;
-  border-radius: 10px;
   box-shadow: 4px 4px 2px #888888;
-  padding: 10px;
-  margin-bottom: 10px;
   overflow: hidden; }
-  .project-summary .logo {
-    float: left;
-    height: 150px;
-    margin-right: 10px; }
-    .project-summary .logo img {
-      height: 100%; }
-  .project-summary .name {
-    margin-top: 0; }
+
+.logo {
+  float: left;
+  margin-right: 10px;
+  background-color: #666; }
+  .logo img {
+    max-width: 150px;
+    max-height: 150px; }
+
+.name {
+  margin-top: 0; }
+
 
 
 /*# sourceMappingURL=maps/styles.css.map */
