@@ -15,11 +15,11 @@
 	<div ng-controller="projectSummaryCtrl as projectSummary" class="project-summary-list">
 		<h2>Project Summaries</h2>
 		<div ng-repeat="project in projectSummary.projects" class="project-summary">
-			<div class="logo">
+			<div class="project-summary-logo">
 				<img src="{{project.logo}}">
 			</div>
-			<h3 class="name">{{project.name}}</h3>
-			<div class="description">{{project.description}}</div>
+			<h3 class="project-summary-name">{{project.name}}</h3>
+			<div class="project-summary-description">{{project.description}}</div>
 		</div>
 	</div>
 </body>

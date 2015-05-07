@@ -1,54 +1,8 @@
-// $state-success-bg:               #FF00FF;
+// Import bootstrap styles
+@import '../jspm_packages/bower/bootstrap-sass@3.3.4/assets/stylesheets/bootstrap';
 
-@import "../jspm_packages/bower/bootstrap-sass@3.3.4/assets/stylesheets/bootstrap";
+// Import custom app styles
+@import 'app';
 
-body
-{
-  background-color: #CCC;
-}
-
-/**
- * Styles for the project summary list
- */
-.project-summary-list
-{
-  padding: 0 20px;
-}
-
-.project-summary
-{
-  margin-bottom: 10px;
-  padding: 10px;
-
-  background-color: #FFF;
-  border: 1px solid #666;
-  box-shadow: 4px 4px 2px #888888;
-
-  // Used to clear logo float
-  overflow: hidden;
-}
-
-.logo
-{
-  float: left;
-
-  margin-right: 10px;
-
-  background-color: #666;
-
-  img
-  {
-    max-width: 150px;
-    max-height: 150px;
-  }
-}
-
-.name
-{
-  margin-top: 0;
-}
-
-.description
-{
-
-}
+// Import custom component styles
+@import 'components/project-summary-list';

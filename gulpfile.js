@@ -12,9 +12,8 @@ var systemjs = require('systemjs-builder');
  * Lints all sass files.
  */
 gulp.task('lint-css', function() {
-  return gulp.src('./sass/*')
-    .pipe(scsslint())
-    .pipe(gulp.dest('./sass'));
+  return gulp.src('./sass/**/*')
+    .pipe(scsslint());
 });
 
 /**
@@ -63,10 +62,10 @@ gulp.task('webserver', function() {
 });
 
 /**
- * Open application task.
- * Opens the application in the default browser.
+ * Launch application task.
+ * Launches the application in the default browser.
  */
-gulp.task('open', function() {
+gulp.task('launch', function() {
   var options = {
     url: 'http://localhost:8080'
   };
@@ -76,18 +75,22 @@ gulp.task('open', function() {
 
 /**
  * Lint task.
- * Lints all source files for consistancy.
+ * Lint all source files for consistancy.
  */
 gulp.task('lint', ['lint-css']);
 
 /**
  * Build task.
- * Builds all source files into production ready files.
+ * Build all source files into production ready files.
  */
 gulp.task('build', ['build-js', 'build-css']);
 
 /**
  * Development task.
- * Starts a server, watches for changes, and launches the application.
+ * Build the CSS, start the server, watch for changes to all files, and launch
+ * the application.
+ *
+ * CSS must be built to preview changes, but the JavaScript can be loaded and
+ * transpiled on the fly.
  */
-gulp.task('default', ['webserver', 'open']);
+gulp.task('default', ['build-css', 'webserver', 'launch']);

@@ -4903,8 +4903,11 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+/**
+ * Styles for the top level application
+ */
 body {
-  background-color: #CCC; }
+  background-color: #ccc; }
 
 /**
  * Styles for the project summary list
@@ -4913,22 +4916,24 @@ body {
   padding: 0 20px; }
 
 .project-summary {
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #FFF;
+  background-color: #fff;
   border: 1px solid #666;
-  box-shadow: 4px 4px 2px #888888;
-  overflow: hidden; }
+  box-shadow: 4px 4px 2px #888;
+  margin-bottom: 10px;
+  overflow: hidden;
+  padding: 10px; }
 
-.logo {
+.project-summary-logo {
+  background-color: #666;
   float: left;
   margin-right: 10px;
-  background-color: #666; }
-  .logo img {
-    max-width: 150px;
-    max-height: 150px; }
+  text-align: center;
+  width: 150px; }
+  .project-summary-logo img {
+    max-height: 150px;
+    max-width: 100%; }
 
-.name {
+.project-summary-name {
   margin-top: 0; }
 
 

@@ -1,0 +1,37 @@
+/**
+ * Styles for the project summary list
+ */
+.project-summary-list {
+  padding: 0 20px;
+}
+
+.project-summary {
+  background-color: #fff;
+  border: 1px solid #666;
+  box-shadow: 4px 4px 2px #888;
+  margin-bottom: 10px;
+  // Used to clear logo float
+  overflow: hidden;
+  padding: 10px;
+}
+
+.project-summary-logo {
+  background-color: #666;
+  float: left;
+  margin-right: 10px;
+  text-align: center;
+  width: 150px;
+
+  img {
+    max-height: 150px;
+    max-width: 100%;
+  }
+}
+
+.project-summary-name {
+  margin-top: 0;
+}
+
+.project-summary-description {
+
+}
