@@ -4912,30 +4912,35 @@ body {
 /**
  * Styles for the project summary list
  */
-.project-summary-list {
+.prj-smry-lst {
   padding: 0 20px; }
 
-.project-summary {
+.prj-smry {
   background-color: #fff;
   border: 1px solid #666;
   box-shadow: 4px 4px 2px #888;
   margin-bottom: 10px;
   overflow: hidden;
   padding: 10px; }
+  .prj-smry.selected {
+    background-color: #ff00ff; }
 
-.project-summary-logo {
-  background-color: #666;
+.prj-smry-logo {
+  background-color: #bbb;
   float: left;
   margin-right: 10px;
   text-align: center;
   width: 150px; }
-  .project-summary-logo img {
+  .prj-smry-logo img {
     max-height: 150px;
     max-width: 100%; }
 
-.project-summary-name {
+.prj-smry-name {
   margin-top: 0; }
 
+.prj-smry-desc {
+  max-height: 150px;
+  overflow: hidden; }
 
 
 /*# sourceMappingURL=maps/styles.css.map */

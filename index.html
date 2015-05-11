@@ -12,14 +12,17 @@
   </script>
 </head>
 <body ng-app="feedbackTracker">
-	<div ng-controller="projectSummaryCtrl as projectSummary" class="project-summary-list">
+	<div class="prj-smry-lst"
+		ng-controller="projectSummaryCtrl as prjSmryLst">
 		<h2>Project Summaries</h2>
-		<div ng-repeat="project in projectSummary.projects" class="project-summary">
-			<div class="project-summary-logo">
-				<img src="{{project.logo}}">
+		<div class="prj-smry" ng-repeat="prj in prjSmryLst.projects"
+			ng-click="prjSmryLst.setSelectedProject(prj)"
+			ng-class="{'selected':prjSmryLst.isSelectedProject(prj)}">
+			<div class="prj-smry-logo">
+				<img src="{{prj.logo}}">
 			</div>
-			<h3 class="project-summary-name">{{project.name}}</h3>
-			<div class="project-summary-description">{{project.description}}</div>
+			<h3 class="prj-smry-name">{{prj.name}}</h3>
+			<div class="prj-smry-desc">{{prj.description}}</div>
 		</div>
 	</div>
 </body>
