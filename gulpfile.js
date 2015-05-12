@@ -6,6 +6,8 @@ var gls = require('gulp-live-server');
 var scsslint = require('gulp-scss-lint');
 var path = require('path');
 var systemjs = require('systemjs-builder');
+var htmlreplace = require('gulp-html-replace');
+var del = require('del');
 
 /**
  * CSS lint task.
@@ -14,6 +16,16 @@ var systemjs = require('systemjs-builder');
 gulp.task('lint-css', function() {
   return gulp.src('./sass/**/*')
     .pipe(scsslint());
+});
+
+/**
+* JavaScript build task.
+* Combines and minifies all packages into a single file.
+ */
+gulp.task('clean', function (cb) {
+	del([
+        'dist'
+    ], cb);
 });
 
 /**
@@ -29,8 +41,20 @@ gulp.task('build-js', function() {
         sourceMaps: true
       };
       builder.config({ baseURL: 'file:' + path.resolve('./') });
-      return builder.buildSFX('./app/app', './build.js', options);
+      return builder.buildSFX('./app/app', './dist/js/bundle.min.js', options);
     });
+});
+
+/**
+ * CSS build task.
+ * Combines and minifies all sass files into a single stylesheet.
+ */
+gulp.task('process-css', function() {
+  return gulp.src('./sass/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write('./maps'))
+    .pipe(gulp.dest('./css'));
 });
 
 /**
@@ -39,13 +63,25 @@ gulp.task('build-js', function() {
  */
 gulp.task('build-css', function() {
   gulp.src(['jspm_packages/bower/bootstrap-sass@3.3.4/assets/fonts/**/*'])
-    .pipe(gulp.dest('fonts'));
+    .pipe(gulp.dest('./dist/fonts'));
 
-  return gulp.src('./sass/*')
+  return gulp.src('./sass/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./dist/css'));
+});
+
+/**
+ * HTML build task.
+ * Replaces references to development files with production ready files.
+ */
+gulp.task('build-html', function() {
+  return gulp.src('index.html')
+    .pipe(htmlreplace({
+        'js': 'js/bundle.min.js'
+    }))
+    .pipe(gulp.dest('./dist'));
 });
 
 /**
@@ -56,7 +92,7 @@ gulp.task('webserver', function() {
   var server = gls.new('app.js');
   server.start();
 
-  gulp.watch(['sass/**/*.scss'], ['build-css']);
+  gulp.watch(['sass/**/*.scss'], ['process-css']);
   gulp.watch(['css/**/*.css', 'app/**/*.js', 'index.html'], server.notify);
   gulp.watch('app.js', server.start);
 });
@@ -83,14 +119,14 @@ gulp.task('lint', ['lint-css']);
  * Build task.
  * Build all source files into production ready files.
  */
-gulp.task('build', ['build-js', 'build-css']);
+gulp.task('build', ['clean', 'process-css', 'build-css', 'build-js', 'build-html']);
 
 /**
  * Development task.
  * Build the CSS, start the server, watch for changes to all files, and launch
  * the application.
  *
- * CSS must be built to preview changes, but the JavaScript can be loaded and
- * transpiled on the fly.
+ * CSS must be processed to preview changes, but the JavaScript can be loaded
+ * and transpiled on the fly.
  */
-gulp.task('default', ['build-css', 'webserver', 'launch']);
+gulp.task('default', ['process-css', 'webserver', 'launch']);

@@ -2,6 +2,9 @@
 logs
 *.log
 
+# Distribution files
+dist
+
 # Dependency directories
 jspm_packages
 node_modules

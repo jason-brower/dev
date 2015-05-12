@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Babel Jspm</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/bundle.min.js"></script>
+</head>
+<body ng-app="feedbackTracker">
+	<div class="prj-smry-lst"
+		ng-controller="projectSummaryCtrl as prjSmryLst">
+		<h2>Project Summaries</h2>
+		<div class="prj-smry" ng-repeat="prj in prjSmryLst.projects"
+			ng-click="prjSmryLst.setSelectedProject(prj)"
+			ng-class="{'selected':prjSmryLst.isSelectedProject(prj)}">
+			<div class="prj-smry-logo">
+				<img src="{{prj.logo}}">
+			</div>
+			<h3 class="prj-smry-name">{{prj.name}}</h3>
+			<div class="prj-smry-desc">{{prj.description}}</div>
+		</div>
+	</div>
+</body>
+</html>
