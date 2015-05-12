@@ -7,9 +7,9 @@
 	<script src="build.js"></script>
 </head>
 <body ng-app="feedbackTracker">
-	<div ng-controller="projectSummaryCtrl as projectSummary" class="project-summary-list">
+	<div ng-controller="projectSummaryListCtrl as projectSummaryList" class="project-summary-list">
 		<h2>Project Summaries</h2>
-		<div ng-repeat="project in projectSummary.projects" class="project-summary">
+		<div ng-repeat="project in projectSummaryList.projects" class="project-summary">
 			<div class="logo">
 				<img src="{{project.logo}}">
 			</div>
