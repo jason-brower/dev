@@ -1,0 +1,21 @@
+/**
+ * Styles for the project summary list
+ */
+.fb-lst {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.smry-table {
+  table-layout: fixed;
+
+  th, td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .st-selected, .st-selected:nth-of-type(odd) {
+    background-color: #ff00ff;
+  }
+}

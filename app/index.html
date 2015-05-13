@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Babel Jspm</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<!-- build:js -->
+	<script src="//localhost:35729/livereload.js"></script>
+	<script src="jspm_packages/system.js"></script>
+	<script src="config.js"></script>
+	<script>
+		System.import('./app');
+  </script>
+	<!-- endbuild -->
+</head>
+<body ng-app="feedbackTracker">
+	<!--
+	<div ng-controller="projectSummaryListCtrl as prjSmryLst"
+		class="prj-smry-lst">
+		<h2>Project Summaries</h2>
+		<div ng-repeat="prj in prjSmryLst.projects"
+			ng-click="prjSmryLst.setSelectedProject(prj)"
+			ng-class="{'selected':prjSmryLst.isSelectedProject(prj)}"
+			class="prj-smry">
+			<div class="prj-smry-logo">
+				<img src="{{prj.logo}}">
+			</div>
+			<h3 class="prj-smry-name">{{prj.name}}</h3>
+			<div class="prj-smry-desc">{{prj.description}}</div>
+		</div>
+	</div>
+-->
+	<div ng-controller="feedbackListCtrl as fbLst" class="fb-lst">
+		<table st-table="fbLst.feedback"
+			class="table table-bordered table-striped smry-table">
+			<thead>
+			<tr>
+				<th st-sort="id" style="width:50px">id</th>
+				<th st-sort="description">description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="row in fbLst.feedback" st-select-row="row">
+				<td>{{row.id}}</td>
+				<td>{{row.description}}</td>
+			</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2" class="text-center">
+						<div st-pagination="" st-items-by-page="15" st-displayed-pages="7"></div>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+</body>
+</html>

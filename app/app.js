@@ -1,10 +1,9 @@
 import angular from 'angular';
 import bootstrap from 'angular-bootstrap';
 import smartTable from 'angular-smart-table';
-import * as ProjectSummaryListModule from './projects/ProjectSummaryListModule';
-
-alert('smartTable: ' + smartTable);
+import lodash from 'lodash';
+import * as FeedbackListModule from './views/feedback/FeedbackListModule';
 
 angular.module('feedbackTracker', ['ui.bootstrap', 'smart-table'])
-  .factory('projectSummaryListSvc', ProjectSummaryListModule.svc)
-  .controller('projectSummaryListCtrl', ProjectSummaryListModule.ctrl);
+  .factory('feedbackListSvc', FeedbackListModule.svc)
+  .controller('feedbackListCtrl', FeedbackListModule.ctrl);

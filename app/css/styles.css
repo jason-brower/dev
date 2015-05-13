@@ -4907,7 +4907,23 @@ button.close {
  * Styles for the top level application
  */
 body {
-  background-color: #ccc; }
+  background-color: #fff; }
+
+/**
+ * Styles for the project summary list
+ */
+.fb-lst {
+  background-color: #fff;
+  padding: 20px; }
+
+.smry-table {
+  table-layout: fixed; }
+  .smry-table th, .smry-table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .smry-table .st-selected, .smry-table .st-selected:nth-of-type(odd) {
+    background-color: #ff00ff; }
 
 /**
  * Styles for the project summary list

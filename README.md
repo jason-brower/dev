@@ -13,3 +13,7 @@ Open command prompt from project path
 5. navigate to http://localhost:8080
 
 requires jspm and jspm-bower-endpoint
+
+
+https://www.npmjs.com/package/gulp-scss-lint
+sass linting requires scss-lint
