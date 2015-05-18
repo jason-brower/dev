@@ -31,7 +31,8 @@
 	</div>
 -->
 	<div ng-controller="feedbackListCtrl as fbLst" class="fb-lst">
-		<table st-table="fbLst.feedback"
+		<div ng-click="fbLst.debug();">DEBUG</div>
+		<table st-table="fbLst.displayedFeedback" st-safe-src="fbLst.feedback"
 			class="table table-bordered table-striped smry-table">
 			<thead>
 			<tr>
@@ -40,7 +41,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr ng-repeat="row in fbLst.feedback" st-select-row="row">
+			<tr ng-repeat="row in fbLst.displayedFeedback" st-select-row="row">
 				<td>{{row.id}}</td>
 				<td>{{row.description}}</td>
 			</tr>

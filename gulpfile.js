@@ -51,7 +51,7 @@ gulp.task('process-sass', function() {
 
 /**
  * Copy assets task.
- * Sends asset files, including css, to the distribution folder;
+ * Sends asset files, including css, to the distribution folder.
  */
 gulp.task('copy-assets', ['clean', 'process-sass'], function() {
   return es.merge(
@@ -102,7 +102,8 @@ gulp.task('webserver', function() {
   server.start();
 
   gulp.watch(['app/sass/**/*.scss'], ['process-sass']);
-  gulp.watch(['app/css/**/*.css', 'app/**/*.js', 'app/index.html'], server.notify);
+  gulp.watch(['app/css/**/*.css', 'app/**/*.js', 'app/index.html'],
+    server.notify);
   gulp.watch('app.js', server.start);
 });
 
