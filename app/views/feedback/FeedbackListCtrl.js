@@ -2,22 +2,16 @@
 
 class FeedbackListCtrl {
 	constructor () {
-		this.selectedProject = null;
-
+		this.selectedFeedback = null;
 		this.init();
 	}
 
-	setSelectedProject ( project ) {
-		this.selectedProject = project;
-	}
-
-	isSelectedProject ( project ) {
-		return this.selectedProject && project === this.selectedProject;
+	setSelectedFeedback( feedback ) {
+		this.selectedFeedback = feedback;
 	}
 
 	init () {
 		this.feedback = [];
-
 		while (this.feedback.length < 100) {
 			this.feedback.push({
 					id: this.feedback.length,

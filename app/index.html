@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Angular Babel Jspm</title>
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="styles.css">
 	<!-- build:js -->
 	<script src="//localhost:35729/livereload.js"></script>
 	<script src="jspm_packages/system.js"></script>
@@ -23,14 +23,17 @@
 			ng-class="{'selected':prjSmryLst.isSelectedProject(prj)}"
 			class="prj-smry">
 			<div class="prj-smry-logo">
-				<img src="{{prj.logo}}">
+				<img ng-attr-src="{{prj.logo}}">
 			</div>
-			<h3 class="prj-smry-name">{{prj.name}}</h3>
-			<div class="prj-smry-desc">{{prj.description}}</div>
+			<h3 ng-bind="prj.name" class="prj-smry-name"></h3>
+			<div ng-bind="prj.description" class="prj-smry-desc"></div>
 		</div>
 	</div>
 -->
 	<div ng-controller="feedbackListCtrl as fbLst" class="fb-lst">
+		<div class="fb-edit">
+			<input ng-model="fbList.selectedFeedback.description"/>
+		</div>
 		<table st-table="fbLst.feedback"
 			class="table table-bordered table-striped smry-table">
 			<thead>
@@ -41,14 +44,15 @@
 			</thead>
 			<tbody>
 			<tr ng-repeat="row in fbLst.feedback" st-select-row="row">
-				<td>{{row.id}}</td>
-				<td>{{row.description}}</td>
+				<td ng-bind="row.id"></td>
+				<td ng-bind="row.description"></td>
 			</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="2" class="text-center">
-						<div st-pagination="" st-items-by-page="15" st-displayed-pages="7"></div>
+						<div st-pagination="" st-items-by-page="15" st-displayed-pages="7">
+						</div>
 					</td>
 				</tr>
 			</tfoot>

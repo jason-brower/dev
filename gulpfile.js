@@ -44,19 +44,19 @@ gulp.task('process-sass', function() {
     gulp.src('./app/sass/**/*.scss')
       .pipe(sourcemaps.init())
       .pipe(sass())
-      .pipe(sourcemaps.write('./maps'))
-      .pipe(gulp.dest('./app/css'))
+      .pipe(sourcemaps.write('./'))
+      .pipe(gulp.dest('./app'))
   );
 });
 
 /**
  * Copy assets task.
- * Sends asset files, including css, to the distribution folder;
+ * Sends asset files, including css, to the distribution folder.
  */
 gulp.task('copy-assets', ['clean', 'process-sass'], function() {
   return es.merge(
-    gulp.src(['./app/css/**/*'])
-      .pipe(gulp.dest('./dist/css')),
+    gulp.src(['./app/*.css', './app/*.map'])
+      .pipe(gulp.dest('./dist')),
     gulp.src(['./app/assets/**/*'])
       .pipe(gulp.dest('./dist/assets'))
   );
@@ -102,7 +102,8 @@ gulp.task('webserver', function() {
   server.start();
 
   gulp.watch(['app/sass/**/*.scss'], ['process-sass']);
-  gulp.watch(['app/css/**/*.css', 'app/**/*.js', 'app/index.html'], server.notify);
+  gulp.watch(['app/**/*.css', 'app/**/*.js', 'app/index.html'],
+    server.notify);
   gulp.watch('app.js', server.start);
 });
 
